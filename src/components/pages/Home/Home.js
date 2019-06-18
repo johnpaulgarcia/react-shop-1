@@ -183,11 +183,14 @@ class Home extends Component {
                         <p>
                         Q: {item.quantity}
                         </p>
+                        
+
+                        <div class="controls">
+                        
                         <button class="btn" onClick={()=>this.remove(item)}>
                             Remove
                         </button>
 
-                        <div>
                         <button class="btnx db" onClick={()=>this.addQuantity(item)}>
                         +
                         </button>

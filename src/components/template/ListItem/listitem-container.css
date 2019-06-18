@@ -1,12 +1,9 @@
 .list-item {
    
-    height: 200px;
+    height: 300px;
     margin: 3px;
 }
 
-.list-item:nth-child(even){
-    background: rgba(0,0,0,0.2);
-}
 
 .height {
     height: 100px;
