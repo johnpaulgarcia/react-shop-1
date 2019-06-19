@@ -111,6 +111,9 @@ class Home extends Component {
 
                <Left toggle={this.state.toggle}>
                <div>
+               <button onClick={()=>this.toggle()}>
+                   TOGGLE VIEW
+               </button>
                <h1>Products</h1>
                 <List>
                {
