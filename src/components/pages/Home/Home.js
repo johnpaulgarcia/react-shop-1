@@ -19,7 +19,8 @@ class Home extends Component {
             isPay: false,
             isDup: false,
             totalPayment: 0,
-            activeItem: ''
+            activeItem: '',
+            toggle: null
         }
     }
 
@@ -63,6 +64,21 @@ class Home extends Component {
         
         
     }
+ 
+   toggle = () => {
+        let es = this.state.toggle;
+
+        if(es===null){
+            this.setState({
+                toggle: 'a',
+            })
+        }
+        else {
+            this.setState({
+                toggle: null,
+            })
+        }
+    }
 
  
 
@@ -93,7 +109,7 @@ class Home extends Component {
                 
           
 
-               <Left>
+               <Left toggle={this.state.toggle}>
                <div>
                <h1>Products</h1>
                 <List>
