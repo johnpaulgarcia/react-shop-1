@@ -109,13 +109,13 @@ class Home extends Component {
                 
           
 
-               <Left toggle={this.state.toggle}>
+               <Left >
                <div>
                <button onClick={()=>this.toggle()}>
                    TOGGLE VIEW
                </button>
                <h1>Products</h1>
-                <List>
+                <List toggle={this.state.toggle}>
                {
                 this.state.shop.map((item,index)=>{
                   return(
