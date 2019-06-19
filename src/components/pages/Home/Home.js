@@ -23,33 +23,6 @@ class Home extends Component {
         }
     }
 
-    componentDidUpdate(prevProps){
-      console.log(this.props.cart);
-
-     
-    }
-
-    addQuantity = (item) => {
-          item['quantity'] = item['quantity'] + 1;
-           let price = this.state.cart.reduce((prev,next)=>prev+(next.price*next.quantity),0);
-           this.setState({
-               totalPayment: price
-           })
-    }
-
-    removeQuantity = (item) => {
-      
-           if(item.quantity>1){
-            item['quantity'] = item['quantity'] - 1;
-            let price = this.state.cart.reduce((prev,next)=>prev+(next.price*next.quantity),0);
-            this.setState({
-                totalPayment: price
-            })
-           }
-       
-    }
-
-
     addToCart = (item) => {
         let checkset = new Set(this.state.cart);
 
