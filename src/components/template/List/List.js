@@ -1,5 +1,5 @@
 import React from 'react';
-const List = ({children}) => {
+const List = ({children,toggle}) => {
     let class1 = `${toggle ? 'banana' : 'list-container'}`;
     return (
 
