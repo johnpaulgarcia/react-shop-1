@@ -3,7 +3,7 @@
 }
 
 .top {
-    height: 150px;
+    height: 200px;
 
 }
 
@@ -23,11 +23,11 @@
 
 .prod_image {
     width: inherit;
-    height: inherit;
+    height: 100px;
 }
 
 .prod_name {
-    position: absolute;
+  
     margin-left: 10px;
     width: fit-content;
     background: orangered;

@@ -19,6 +19,7 @@ class Home extends Component {
             isPay: false,
             isDup: false,
             totalPayment: 0,
+            activeItem: ''
         }
     }
 
@@ -54,9 +55,7 @@ class Home extends Component {
 
         if(checkset.has(item)){
            
-            this.setState({
-                isDup: true
-            })
+           item['quantity'] = item['quantity'] + 1;
            
         }
 
@@ -98,20 +97,7 @@ class Home extends Component {
         return(
             <Container style="background: gray">
                
-                {this.state.isDup && 
-                    <div class="popup">
-                    <div class="top topx">
-                        You already have this item in the cart.
-                    </div>
-    
-                    <div class="bottom" onClick={()=>this.setState({isDup: false})}>
-                        OK
-                    </div>
-    
-                    </div>
-    
-
-                }
+                
 
                 {this.state.isPay && 
                     <div class="popup">
@@ -141,19 +127,7 @@ class Home extends Component {
                {
                 this.state.shop.map((item,index)=>{
                   return(
-                    <ListItem key={index}>
-                      <div class="top">
-                        <p class="prod_name">
-                        {item.name} ({item.price} PHP)
-                        </p>
-                        <img class="prod_image" src={item.avatar} />
-
-                      </div>
-
-                      <div onClick={()=>this.addToCart(item)} class="bottom">
-                          Add to Cart
-                      </div>
-                  </ListItem>
+                    <ListItem item={item} addToCartFn={this.addToCart} key={index} />
                     
                   );
                 })
@@ -169,43 +143,9 @@ class Home extends Component {
                   {
                       this.state.cart.map((item,index)=>{
                           return(
-
-                            <ListItem key={index}>
-                      <div class="top">
-                        <p class="prod_name">
-                        {item.name} 
-                        
-                        </p>
-                        <p class="prod_description">
-                            {item.description} 
-                        </p>
-                        <img class="prod_image" src={item.avatar} />
-                        <p>
-                        Q: {item.quantity}
-                        </p>
-                        
-
-                        <div class="controls">
-                        
-                        <button class="btn" onClick={()=>this.remove(item)}>
-                            Remove
-                        </button>
-
-                        <button class="btnx db" onClick={()=>this.addQuantity(item)}>
-                        +
-                        </button>
-
-                        <button class="btnx red" onClick={()=>this.removeQuantity(item)}>
-                           -
-                        </button>
-                        </div>
-                       
-                      </div>
-
-                      
-                  </ListItem>
-
-
+                            <div>
+                            <ListItem item={item} removeCartFn={this.remove} key={index} />
+                           </div>
                           );
                       })
                   }
